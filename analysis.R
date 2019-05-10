@@ -152,12 +152,20 @@ state_with_most_people_hurt <- shootings %>%
                                 filter(most_casualties == max(most_casualties)) %>% 
                                 select(state)
 state_with_most_people_hurt
+
+#getting the number of casualties in California 
+number_casualities_california <- top_states %>% filter(State == "California") %>% select(Casualties)
+
 #Answer was California with 186 casualties 
 
 incident_with_most_casualites <- shootings %>% 
                     filter(state == "California") %>% 
                     filter(num_casualties == max(num_casualties))
 View(incident_with_most_casualites)  
+
+#Getting name of incident 
+incident_name <- incident_with_most_casualites %>% 
+  select(city,state)
 
 #This incident that occured in Thousand Oaks had the highest number of casualites with 15 people hurt out
 #of which 13 were dead 
@@ -168,9 +176,9 @@ incident_date <- incident_with_most_casualites %>%
 
 #Finding location of incident 
 address <- incident_with_most_casualites %>% 
-            select(address)
-city <- incident_with_most_casualites %>% 
-          select(city)
+            select(address,city)
+View(address)
+
 
 #Finding number of casualites 
 casualties <- incident_with_most_casualites %>% 
@@ -201,6 +209,12 @@ shootings_visualization <- shootings %>%
                             ungroup()
 View(shootings_visualization)
 
+
+highest_casualties <- shootings_visualization %>% 
+  filter(total_casualities == max(total_casualities)) %>% 
+  select(city,state)
+highest_casualties
+
 #Hovering information
 shootings_visualization$hover <- with(shootings_visualization,
                                     paste("Location:",shootings_visualization$city, ",", 
@@ -216,7 +230,7 @@ visual <- leaflet(data = shootings_visualization) %>% # specify the data you wan
     lat = ~lat,   # a formula specifying the column to use for latitude
     lng = ~long, # a formula specifying the column to use for longitude
     popup = ~hover,    # a formula specifying the information to pop up
-    radius = ~total_casualities,
+    radius = ~total_casualities * 2,
     stroke = FALSE
   )
 visual
@@ -242,17 +256,17 @@ shootings_plot$hover <- with(shootings_plot,
                                             "Total number of people shot:", shootings_plot$total_shootings, "<br>",
                                            "Death Percentage", shootings_plot$death_percentage))
 plot <- plot_ly(
-  data = shootings_plot,      # pass in the data to be visualized
-  x = ~shootings_plot$death_percentage, # use a formula to specify the column for the x-axis
-  y = ~shootings_plot$total_shootings, # use a formula to specify the column for the y-axis
-  text = ~shootings_plot$hover, # use a formula to specify the color encoding
-  type = "scatter", # specify the type of plot to create
-  mode = "markers"  # determine the "drawing mode" for the scatter (points)
+  data = shootings_plot,      
+  x = ~shootings_plot$death_percentage, 
+  y = ~shootings_plot$total_shootings, 
+  text = ~shootings_plot$hover, 
+  type = "scatter", 
+  mode = "markers"  
 ) %>%
   layout(
-    title = "Death Percentage in 2018 due to Shootings", # plot title
-    xaxis = list(title = "Death Percentage"), # axis label
-    yaxis = list(title = "Total Shootings") # axis label
+    title = "Death Percentage in 2018 due to Shootings", 
+    xaxis = list(title = "Death Percentage"), 
+    yaxis = list(title = "Total Shootings") 
   )
 plot
 

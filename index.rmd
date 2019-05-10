@@ -9,6 +9,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 library(dplyr)
 library(lubridate)
 library(tidyr)
@@ -21,13 +22,13 @@ library(ggplot2)
 source("analysis.R")
 ```
 
-#Introduction: Shootings in USA in 2018/ Summary 
+##__Summary: Shootings in USA in 2018__ 
 
 This page displays various information about the shootings that occured in 2018. This data was collected from [GunViolence.org](https://www.gunviolencearchive.org/reports/mass-shooting?year=2018). The total number of shootings that occured in 2018 is __`r num_shootings`__ and the total number of lives lost due to shootings is __`r num_dead`__. __`r city_most_impacted`__ is the city most impacted by shootings that occurred in 2018. The state that lost the most lives is __`r state_with_most_deaths`__ with __`r num_most_deaths`__ deaths. 
 
 _Casualties are defined as number of injuries and deaths that occured due to an incident_. __`r city_most_hurt`__ had the most number of casualties with __`r numb_casualties`__ casualites. __`r city_second_most_hurt`__ had the second most number of casualties. 
 
-#Summary Table
+##__Summary Table__
 
 The table below shows the shows the total casualties due to shootings in 2018, and the number of deaths and injuries as well. From this table we can see which states were affected the most due to shootings in terms of number of deaths, casualties or injuries 
 
@@ -37,19 +38,32 @@ This table below shows the top 5 states that were affected by shootings in 2018
 
 `r top_states_table`
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+##__Specific Incident: `r incident_name`__
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+I selected this incident by reading the table above and identifying which state had the most number of casualties. The state with the highest number of casualties is __`r state_with_most_people_hurt`__ with __`r number_casualities_california`__ casualties. __`r incident_name`__ had the highest number of casualites in this state. This incident occured on __`r incident_date`__ at _`r address`_. This incident occured at the [Borderline Bar & Grill](https://www.nytimes.com/2018/11/08/us/shooting-california-thousand-oaks.html) in `r incident_name` around 11pm. The number of casualties were __`r casualties`__ out of which __`r dead`__ died and __`r injured`__ were injured. 
 
-```{r cars}
-summary(cars)
-```
+##__Interactive Visualisation__ 
 
-## Including Plots
+This __visualisation__ below will show the location of each shooting that occured in 2018 and the size of the marker will be based on the number of casualites (number injured and dead). From this visualisation you should be able to get a view of the locations of shooting incidents, and the relative comparasion of casualties.  When you hover over each point the extra information 
+provided will be the number of injuries, number of deaths, and the location of the incident. 
 
-You can also embed plots, for example:
+`r visual` 
 
-```{r pressure, echo=FALSE}
-```
+From this visualisation we can see that,
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+ * There are more shooting incidents which lead to casualties in the eastern parts of USA compared to the westcoast. 
+ * While the tables above showed that California had the highest number of casualties when we compared states, this    visualization shows that the highest number of casualties when comparing cities is __`r highest_casualties`__. 
+ 
+##__Interactive Plot__
+
+I wanted to see what is the __percentage of death__ in each state due to shootings. I chose to display the information as a _scatterplot_ as this is a measurment of two continuous variables (death rates and total shootings) so the visually impactful way to display this information is as a  scatterplot where the maximum and minimum values are easily identified and you can see the position of one state relative to other states.  
+
+To get the death percentage information, I created anew dataframe that only includes, state, num_hurt and num_killed and a new column that includes death rates (which are calculated using the information provided in the orginal dataset)
+
+`r plot` 
+
+From the plot the following insights are evident: 
+
+* Higher number of casualties does not always mean higher rates of death. For example, _Kentucky_ had 32 casualties out of which 7 were dead, but _Delaware_ had a death rate of 100% indicating that all casualties were death. 
+* Most states remained below _50% death rate and below 100 total shootings_. This shows that not all the sufferings due to shootings was due to death but injuries as well. 
+
