@@ -61,7 +61,7 @@ From this visualisation we can see that,
 
 I wanted to see what is the __percentage of death__ in each state due to shootings. I chose to display the information as a _scatterplot_ as this is a measurment of two continuous variables (death rates and total shootings) so the visually impactful way to display this information is as a  scatterplot where the maximum and minimum values are easily identified and you can see the position of one state relative to other states.  
 
-To get the death percentage information, I created a new dataframe that only includes, state, num_hurt and num_killed and a new column that includes death rates (which are calculated using the information provided in the orginal dataset)
+To get the death percentage information, I created a new dataframe that only includes, state, number of casualties and number of deaths and a new column that includes death rates (which are calculated using the information provided in the orginal dataset)
 
 `r plot` 
 
