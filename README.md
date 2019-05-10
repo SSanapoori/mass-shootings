@@ -4,4 +4,4 @@ In this assignment, you'll complete the instructions **on Canvas** to demonstrat
 Please **edit this README.md** file to include a link to your hosted report (this will **earn you points** and make **grading easier**). When you're finished, please make sure to **submit this GitHub URL** to Canvas on time for credit.
 
 **Link to Hosted Report:**
-https://info201a-s19.github.io/a5-SSanapoori/?fbclid=IwAR1-748kEs71iYP2bv8FBc8AQgxseX_RzeR14NeNcIPLLQE-M9Dbq2ETCJg
+https://info201a-s19.github.io/a5-SSanapoori/

@@ -57,7 +57,7 @@ parkland_deaths <- shootings_original %>%
                     filter(most_dead == max(most_dead)) %>%
                     select(most_dead)
 
-# Which state lost the most people due to shootings? 
+# Which state lost the most people due to shootings in one incident? 
 
 # I am looking at the most number of deaths when I say lost the most people
 
