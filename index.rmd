@@ -1,0 +1,55 @@
+---
+title: "__Mass Shootings in USA in 2018__"
+author: "Shwetha Sanapoori"
+output: 
+  html_document:
+    theme: journal
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(lubridate)
+library(tidyr)
+library(knitr)
+library(kableExtra)
+library(leaflet)
+library(plotly)
+library(ggplot2)
+
+source("analysis.R")
+```
+
+#Introduction: Shootings in USA in 2018/ Summary 
+
+This page displays various information about the shootings that occured in 2018. This data was collected from [GunViolence.org](https://www.gunviolencearchive.org/reports/mass-shooting?year=2018). The total number of shootings that occured in 2018 is __`r num_shootings`__ and the total number of lives lost due to shootings is __`r num_dead`__. __`r city_most_impacted`__ is the city most impacted by shootings that occurred in 2018. The state that lost the most lives is __`r state_with_most_deaths`__ with __`r num_most_deaths`__ deaths. 
+
+_Casualties are defined as number of injuries and deaths that occured due to an incident_. __`r city_most_hurt`__ had the most number of casualties with __`r numb_casualties`__ casualites. __`r city_second_most_hurt`__ had the second most number of casualties. 
+
+#Summary Table
+
+The table below shows the shows the total casualties due to shootings in 2018, and the number of deaths and injuries as well. From this table we can see which states were affected the most due to shootings in terms of number of deaths, casualties or injuries 
+
+`r state_table`
+
+This table below shows the top 5 states that were affected by shootings in 2018 
+
+`r top_states_table`
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
