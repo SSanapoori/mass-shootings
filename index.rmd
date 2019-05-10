@@ -24,7 +24,7 @@ source("analysis.R")
 
 ##__Summary: Shootings in USA in 2018__ 
 
-This page displays various information about the shootings that occured in 2018. This data was collected from [GunViolence.org](https://www.gunviolencearchive.org/reports/mass-shooting?year=2018). The total number of shootings that occured in 2018 is __`r num_shootings`__ and the total number of lives lost due to shootings is __`r num_dead`__. __`r city_most_impacted`__ is the city most impacted (in terms of deaths) by a single shooting that occurred in 2018 with __`r parkland_deaths`__ deaths. The state that lost the most lives in one incident is __`r state_with_most_deaths`__ with __`r num_most_deaths`__ deaths. 
+This page displays various information about the shootings that occured in 2018. This data was collected from [GunViolence.org](https://www.gunviolencearchive.org/reports/mass-shooting?year=2018). The total number of shootings that occured in 2018 is __`r num_shootings`__ and the total number of lives lost due to shootings is __`r num_dead`__. __`r city_most_impacted`__ is the city most impacted (in terms of deaths) by a single shooting incident that occurred in 2018 with __`r parkland_deaths`__ deaths. The state that lost the most lives in one incident is __`r state_with_most_deaths`__ with __`r num_most_deaths`__ deaths. 
 
 __*Casualties are defined as number of injuries and deaths that occured due to an incident*__. __`r city_most_hurt`__ had the most number of casualties with __`r numb_casualties`__ casualites. __`r city_second_most_hurt`__ had the second most number of casualties. 
 
