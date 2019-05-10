@@ -24,9 +24,9 @@ source("analysis.R")
 
 ##__Summary: Shootings in USA in 2018__ 
 
-This page displays various information about the shootings that occured in 2018. This data was collected from [GunViolence.org](https://www.gunviolencearchive.org/reports/mass-shooting?year=2018). The total number of shootings that occured in 2018 is __`r num_shootings`__ and the total number of lives lost due to shootings is __`r num_dead`__. __`r city_most_impacted`__ is the city most impacted by shootings that occurred in 2018. The state that lost the most lives is __`r state_with_most_deaths`__ with __`r num_most_deaths`__ deaths. 
+This page displays various information about the shootings that occured in 2018. This data was collected from [GunViolence.org](https://www.gunviolencearchive.org/reports/mass-shooting?year=2018). The total number of shootings that occured in 2018 is __`r num_shootings`__ and the total number of lives lost due to shootings is __`r num_dead`__. __`r city_most_impacted`__ is the city most impacted (in terms of deaths) by shootings that occurred in 2018 with __'r parkland_deaths'__. The state that lost the most lives is __`r state_with_most_deaths`__ with __`r num_most_deaths`__ deaths. 
 
-_Casualties are defined as number of injuries and deaths that occured due to an incident_. __`r city_most_hurt`__ had the most number of casualties with __`r numb_casualties`__ casualites. __`r city_second_most_hurt`__ had the second most number of casualties. 
+__*Casualties are defined as number of injuries and deaths that occured due to an incident*__. __`r city_most_hurt`__ had the most number of casualties with __`r numb_casualties`__ casualites. __`r city_second_most_hurt`__ had the second most number of casualties. 
 
 ##__Summary Table__
 
@@ -34,18 +34,21 @@ The table below shows the shows the total casualties due to shootings in 2018, a
 
 `r state_table`
 
-This table below shows the top 5 states that were affected by shootings in 2018 
+This table below only shows the top 5 states that were affected by shootings in 2018 and displays the number of casualties further divided into injuries and deaths for each of the 5 states. 
 
 `r top_states_table`
 
+Looking at the above table it is clear that `r state_highest_casualty` has the highest number of deaths, injuries and casualties. 
+
+We can also see that not all shots are fatal as there is more injuries due to shootings than deaths. However looking at the table with all the states information present we can see that this is not always the case. `r state_only_dead` is an example where all casualties were deaths. 
+
 ##__Specific Incident: `r incident_name`__
 
-I selected this incident by reading the table above and identifying which state had the most number of casualties. The state with the highest number of casualties is __`r state_with_most_people_hurt`__ with __`r number_casualities_california`__ casualties. __`r incident_name`__ had the highest number of casualites in this state. This incident occured on __`r incident_date`__ at _`r address`_. This incident occured at the [Borderline Bar & Grill](https://www.nytimes.com/2018/11/08/us/shooting-california-thousand-oaks.html) in `r incident_name` around 11pm. The number of casualties were __`r casualties`__ out of which __`r dead`__ died and __`r injured`__ were injured. 
+I selected this incident by reading the table above and identifying which state had the most number of casualties. The state with the highest number of casualties is __`r state_with_most_people_hurt`__ with __`r number_casualities_california`__ casualties. __`r incident_name`__ had the highest number of casualites in this state. This incident occured on __`r incident_date`__ at _`r address`_. This unfortunate incident occured at the [Borderline Bar & Grill](https://www.nytimes.com/2018/11/08/us/shooting-california-thousand-oaks.html) in `r incident_name` around 11pm. The number of casualties were __`r casualties`__ out of which __`r dead`__ died and __`r injured`__ were injured. 
 
 ##__Interactive Visualisation__ 
 
-This __visualisation__ below will show the location of each shooting that occured in 2018 and the size of the marker will be based on the number of casualites (number injured and dead). From this visualisation you should be able to get a view of the locations of shooting incidents, and the relative comparasion of casualties.  When you hover over each point the extra information 
-provided will be the number of injuries, number of deaths, and the location of the incident. 
+This __visualisation__ below will show the location of each shooting that occured in 2018 and the size of the marker will be based on the number of casualites (number injured and dead). From this visualisation you should be able to get a view of the locations of shooting incidents, and the relative comparasion of casualties.  When you hover over each point the extra information will be provided such as the number of injuries, number of deaths, and the location of the incident. 
 
 `r visual` 
 
@@ -58,7 +61,7 @@ From this visualisation we can see that,
 
 I wanted to see what is the __percentage of death__ in each state due to shootings. I chose to display the information as a _scatterplot_ as this is a measurment of two continuous variables (death rates and total shootings) so the visually impactful way to display this information is as a  scatterplot where the maximum and minimum values are easily identified and you can see the position of one state relative to other states.  
 
-To get the death percentage information, I created anew dataframe that only includes, state, num_hurt and num_killed and a new column that includes death rates (which are calculated using the information provided in the orginal dataset)
+To get the death percentage information, I created a new dataframe that only includes, state, num_hurt and num_killed and a new column that includes death rates (which are calculated using the information provided in the orginal dataset)
 
 `r plot` 
 
