@@ -40,7 +40,7 @@ This table below only shows the top 5 states that were affected by shootings in 
 
 Looking at the above table it is clear that `r state_highest_casualty` has the highest number of deaths, injuries and casualties. 
 
-We can also see that not all shots are fatal as there is more injuries due to shootings than deaths. However looking at the table with all the states information present we can see that this is not always the case. `r state_only_dead` is an example where all casualties were deaths. 
+We can also see that not all shots are fatal as there is more injuries due to shootings than deaths. However, looking at the table with all the states information present we can see that this is not always the case. `r state_only_dead` is an example where all casualties were deaths. 
 
 ##__Specific Incident: `r incident_name`__
 
